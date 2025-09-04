@@ -1,0 +1,21 @@
+el primer error que se ve es que no esta instalado el flask migrate.
+
+el segundo error es que el SQLAlchemy la a estaba en minuscula por eso causa un error estaba asi: SQLalchemy y deberia ser asi SQLAlchemy.
+
+tercer error es que el about.html tiene esto en el contenido: {% extends 'base_template.html' %} esto esta mal deberia ser como el nombre que es base.html.
+
+el cuarto error este no se si cuenta pero: <a class="nav-link" href="/index">Inicio <span class="sr-only">Inicio</span></a> esto no deberia ser con /index porque el inicio es con / asi nomas.
+
+quinto error habilitar GET y POST en el metho de app.py porque era GET y debe aceptar ambos.
+
+sexto error esta mal definido el nuevo usuario en el app.py tendria que ser o asi como esta: nombre = request.form.get('username'), y cambiar lo de nuevo usuario por nombre en la asignacion de username asi: nuevo_usuario = User(username=nombre, email=email) o otra opcion seria poner directamente username = request.form.get('username') username en vez de nombre.
+
+septimo error no esta bien importado User.
+
+octavo error usuarios=Users.query.all() no es asi es asi: usuarios=User.query.all().
+
+noveno error: return render_template('users.html', users=usuarios) es asi no asi: return render_template('users.html', users= []).
+
+decimo error seria que esta mal configurado el app.config y deberia ser asi "mysql+pymysql://root@localhost:3306/encontrar_error" cambiando el puerto y el nombre de mi base de datos, el usuario y el password a root.
+
+Por ultimo agregue una clave app.secret_key que fue esta: una_clave_super.Despues hice un if para verificar si el usuario ya esta registrado que me hace tener que importar: redirect, url_for y from flask import flash, luego use el flash y agregue en el archivo base.html lineas para que funcion el flash.
